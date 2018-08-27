@@ -1,0 +1,47 @@
+pragma solidity ^0.4.17;
+pragma experimental ABIEncoderV2;
+contract Candidates
+{
+    struct candidateInformation
+    {
+         int candidateID;
+         string idNumber;
+         string name;
+         string birthOfDate;
+         string password;
+
+    }
+       struct candidateDetails
+       {
+            int candidateID;
+            string city;
+            string year;
+            string phoneNumber;
+       }
+       struct candidateTracking
+       {
+          int candidateID;
+          int numberOfVotes;
+       }
+       
+       candidateTracking[] public arrayCandidateTracking;
+       candidateInformation[] public arrayCandidateInformation;
+       function getArray() public returns(candidateInformation [])
+       {
+         //  return candidateInformation({ candidateID: arrayCandidateInformation.candidateID, idNumber: arrayCandidateInformation.idNumber , name: arrayCandidateInformation.name , birthOfDate: arrayCandidateInformation.birthOfDate , password: arrayCandidateInformation.password});
+             return arrayCandidateInformation;
+       }
+       
+       function addCandidate(string _idNumber,string _name,string _birthOfDate,string _password)
+       {
+        arrayCandidateInformation.push(candidateInformation(int(arrayCandidateInformation.length) +1,_idNumber,_name,_birthOfDate,_password));   
+       }
+       function getCandidates() public view returns (candidateInformation[])
+       {
+           return arrayCandidateInformation;
+       }
+      function getCandidatesLength() public view returns (uint)
+      {
+      return    arrayCandidateInformation.length;
+      }
+}

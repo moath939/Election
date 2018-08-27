@@ -1,0 +1,51 @@
+pragma solidity ^0.4.21;
+pragma experimental ABIEncoderV2;
+import "./Candidates.sol";
+
+contract  CandidateInterface
+{
+    
+    function getCandidates();
+    function getCandidatesLength();
+    
+}
+contract Voters is Candidates
+{
+    CandidateInterface candidate;
+    string name;
+    struct voterInfo
+    {
+        int voterID;
+        string idNumber;
+        string name;
+        string birthOfDate;
+        string password;
+    }
+    struct voterDetails
+    {
+        int voterID;
+        int candidateID;
+        string city;
+        string year;
+    
+    }
+    function addVoteToCandidates(int id) 
+    {
+    address  x = 0xa113b22d40dc1d5d086003c27a556e597f614e8b;
+     candidate = CandidateInterface(x);
+ 
+
+    for(uint i=0;i<getCandidatesLength();i++)
+
+    {
+        
+        if(getCandidates()[i].candidateID==id)
+        {
+        //  getCandidates()[i].   
+            
+        }
+    }
+    
+
+    }
+}
